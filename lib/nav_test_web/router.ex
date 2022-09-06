@@ -17,6 +17,9 @@ defmodule NavTestWeb.Router do
   scope "/", NavTestWeb do
     pipe_through :browser
 
+    live "/cats", CatsLive, :index
+    live "/dogs", DogsLive, :index
+
     get "/", PageController, :index
   end
 
