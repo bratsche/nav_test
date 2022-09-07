@@ -1,18 +1,9 @@
 # NavTest
 
-To start your Phoenix server:
+To reproduce the issue:
 
-  * Install dependencies with `mix deps.get`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+  * Navigate to [`http://localhost:4000/cats`](http://localhost:4000/cats)
+  * Click the `(dogs)` link.
+  * Observe that the URL in the browser window does not change.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Now, go into `mix.exs` and change the `phoenix_live_view` value to `0.7.10` (without the `~>` and re-run `mix.deps.get` and try to reproduce again. It behaves differently when it's not using anything older than `0.7.11`.
